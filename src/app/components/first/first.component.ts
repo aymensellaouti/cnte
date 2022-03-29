@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-first',
   templateUrl: './first.component.html',
@@ -8,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
 export class FirstComponent {
   name = 'aymen ';
   isHidden = false;
-  constructor() {
-    setInterval(() => {
-      //this.name = this.name + '  1';
-      this.isHidden = !this.isHidden;
-    }, 1500);
+  message = '';
+  constructor() {}
+  showHide() {
+    this.isHidden = !this.isHidden;
+  }
+  modifyMessage(newMessage: string) {
+    this.message = newMessage;
   }
 }

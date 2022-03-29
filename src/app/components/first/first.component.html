@@ -1,4 +1,9 @@
-<p
-  [hidden]="isHidden"
->{{ name }} works!</p>
+<p [hidden]="isHidden">{{ name }} works!</p>
 <app-second></app-second>
+<button (click)="showHide()" class="btn btn-primary">show / hide</button>
+<p>{{ message }}</p>
+<input #textInput type="text" class="form-control" />
+<button (click)="modifyMessage(textInput.value)"
+  class="btn btn-success">
+  show input message
+</button>
