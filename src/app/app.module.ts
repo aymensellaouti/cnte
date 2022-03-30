@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -22,6 +25,7 @@ import { LampeComponent } from './directives/lampe/lampe.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { DefaultImagePipe } from './pipes/default-image.pipe';
+import { TodoComponent } from './todo/todo/todo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,14 +45,17 @@ import { DefaultImagePipe } from './pipes/default-image.pipe';
     LampeComponent,
     HighlightDirective,
     RainbowDirective,
-    DefaultImagePipe
+    DefaultImagePipe,
+    TodoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

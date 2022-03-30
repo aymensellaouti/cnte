@@ -1,6 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Cv } from '../model/cv';
 import { DetailComponent } from '../detail/detail.component';
+import { LoggerService } from '../../services/logger.service';
+import { SayHelloService } from '../../services/say-hello.service';
+import { CvService } from '../services/cv.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cv',
@@ -12,23 +16,19 @@ export class CvComponent implements OnInit {
   cvs: Cv[] = [];
   date = new Date();
   selectedCv: Cv | null = null;
-  constructor() {
-    this.cvs = [
-      new Cv(
-        1,
-        'sellaouti',
-        'aymen',
-        'teacher',
-        'rotating_card_profile3.png',
-        '111',
-        39
-      ),
-      new Cv(2, 'sellaouti1', 'aymen1', 'teacher', '', '111', 39),
-      new Cv(3, 'sellaouti2', 'aymen2', 'teacher', '              ', '111', 39),
-    ];
+  /*   helloService = new SayHelloService(); */
+  constructor(
+    private loggerService: LoggerService,
+    private helloService: SayHelloService,
+    private cvService: CvService,
+    private toastr: ToastrService
+  ) {}
+  ngOnInit(): void {
+    this.loggerService.log('cc je suis le cvComponent');
+    this.helloService.hello();
+    this.cvs = this.cvService.getCvs();
+    this.toastr.info('Bienvenu chez CvTech');
   }
-
-  ngOnInit(): void {}
   getCv(cv: Cv): void {
     this.selectedCv = cv;
   }
