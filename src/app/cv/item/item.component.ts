@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Cv } from '../model/cv';
 
 @Component({
   selector: 'app-item',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
+  @Input() cv: Cv | null = null;
+  @Output() selectCvItem = new EventEmitter<Cv>();
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  selectCv() {
+    if (this.cv)
+      this.selectCvItem.emit(this.cv);
   }
 
 }
