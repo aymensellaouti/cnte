@@ -1,0 +1,14 @@
+<div
+  [ngClass]="{
+    eteinte: !isAllume,
+    allume: isAllume
+  }"
+  class="lampe"
+>
+  lampe
+</div>
+<p appHighlight [in]="'red'" [out]="'white'">cc</p>
+
+<div appHighlight>Bonjour</div>
+
+<input type="text" appRainbow />
