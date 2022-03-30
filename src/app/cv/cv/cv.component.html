@@ -1,5 +1,9 @@
 <div class="row">
   <div class="col">
+    <div class="alert alert-info">
+      {{ date | date: "long" }}
+      {{ 175846.1235 | currency: "USD" }}
+    </div>
     <app-list (forwardCvItem)="getCv($event)" [cvs]="cvs"></app-list>
   </div>
   <div class="col">

@@ -21,6 +21,7 @@ import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
 import { LampeComponent } from './directives/lampe/lampe.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
+import { DefaultImagePipe } from './pipes/default-image.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { RainbowDirective } from './directives/rainbow.directive';
     NgstyleComponent,
     LampeComponent,
     HighlightDirective,
-    RainbowDirective
+    RainbowDirective,
+    DefaultImagePipe
   ],
   imports: [
     BrowserModule,
