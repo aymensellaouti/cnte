@@ -5,17 +5,21 @@ import { TodoComponent } from './todo/todo/todo.component';
 import { ColorComponent } from './components/color/color.component';
 import { FirstComponent } from './components/first/first.component';
 import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
+import { DetailCvComponent } from './cv/detail-cv/detail-cv.component';
+import { NF404Component } from './components/nf404/nf404.component';
 
 const routes: Routes = [
-  { path: '', component: FirstComponent},
-  { path: 'cv', component: CvComponent},
-  { path: 'todo', component: TodoComponent},
-  { path: 'color', component: ColorComponent},
-  { path: 'word', component: NgstyleComponent},
+  { path: '', component: FirstComponent },
+  { path: 'cv', component: CvComponent },
+  { path: 'todo', component: TodoComponent },
+  { path: 'color', component: ColorComponent },
+  { path: 'word', component: NgstyleComponent },
+  { path: 'cv/:id', component: DetailCvComponent },
+  { path: '**', component: NF404Component },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

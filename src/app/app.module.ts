@@ -27,6 +27,8 @@ import { RainbowDirective } from './directives/rainbow.directive';
 import { DefaultImagePipe } from './pipes/default-image.pipe';
 import { TodoComponent } from './todo/todo/todo.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DetailCvComponent } from './cv/detail-cv/detail-cv.component';
+import { NF404Component } from './components/nf404/nf404.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     DefaultImagePipe,
     TodoComponent,
     NavbarComponent,
+    DetailCvComponent,
+    NF404Component,
   ],
   imports: [
     BrowserModule,

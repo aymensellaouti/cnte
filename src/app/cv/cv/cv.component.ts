@@ -5,6 +5,7 @@ import { LoggerService } from '../../services/logger.service';
 import { SayHelloService } from '../../services/say-hello.service';
 import { CvService } from '../services/cv.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cv',
@@ -21,7 +22,8 @@ export class CvComponent implements OnInit {
     private loggerService: LoggerService,
     private helloService: SayHelloService,
     private cvService: CvService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.loggerService.log('cc je suis le cvComponent');
@@ -31,5 +33,8 @@ export class CvComponent implements OnInit {
   }
   getCv(cv: Cv): void {
     this.selectedCv = cv;
+  }
+  naviguer() {
+    this.router.navigate(['todo']);
   }
 }
