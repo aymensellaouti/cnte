@@ -32,6 +32,8 @@ import { DetailCvComponent } from './cv/detail-cv/detail-cv.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { LoginComponent } from './components/login/login.component';
 import { TestHttpComponent } from './components/test-http/test-http.component';
+import { AddPersonneComponent } from './cv/add-personne/add-personne.component';
+import { AuthentificationInterceptorProvider } from './auth/interceptors/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +60,7 @@ import { TestHttpComponent } from './components/test-http/test-http.component';
     NF404Component,
     LoginComponent,
     TestHttpComponent,
+    AddPersonneComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,9 +68,9 @@ import { TestHttpComponent } from './components/test-http/test-http.component';
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthentificationInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

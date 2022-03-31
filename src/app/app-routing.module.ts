@@ -8,6 +8,8 @@ import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
 import { DetailCvComponent } from './cv/detail-cv/detail-cv.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { LoginComponent } from './components/login/login.component';
+import { AddPersonneComponent } from './cv/add-personne/add-personne.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -16,6 +18,7 @@ const routes: Routes = [
   { path: 'color', component: ColorComponent },
   { path: 'login', component: LoginComponent },
   { path: 'word', component: NgstyleComponent },
+  { path: 'cv/add', component: AddPersonneComponent, canActivate: [AuthGuard] },
   { path: 'cv/:id', component: DetailCvComponent },
   { path: '**', component: NF404Component },
 ];
