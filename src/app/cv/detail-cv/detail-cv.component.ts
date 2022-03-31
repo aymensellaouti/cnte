@@ -20,10 +20,14 @@ export class DetailCvComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((mesParams) => {
-      this.cv = this.cvService.getCvById(+mesParams['id']);
-      if (!this.cv) {
-        this.router.navigate(['cv']);
-      }
+      this.cvService.getCvById(+mesParams['id']).subscribe({
+        next: (cv) => {
+          this.cv = cv;
+        },
+        error: () => {
+          this.router.navigate(['cv']);
+        },
+      });
     });
     this.activatedRoute.queryParams.subscribe((mesQP) => {
       console.log(mesQP);
@@ -32,9 +36,15 @@ export class DetailCvComponent implements OnInit {
   deleteCv() {
     if (this.cv) {
       const message = `Le cv de ${this.cv.firstname} ${this.cv.name} a été supprimé avec succès`;
-      this.cvService.deleteCvById(this.cv);
-      this.toastr.success(message);
-      this.router.navigate(['cv']);
+      this.cvService.deleteCvById(this.cv.id).subscribe({
+        next: () => {
+          this.router.navigate(['cv']);
+          this.toastr.success(message);
+        },
+        error: (erreur) => {
+          console.log(erreur);
+        },
+      });
     }
   }
 }

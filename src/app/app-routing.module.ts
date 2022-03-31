@@ -7,12 +7,14 @@ import { FirstComponent } from './components/first/first.component';
 import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
 import { DetailCvComponent } from './cv/detail-cv/detail-cv.component';
 import { NF404Component } from './components/nf404/nf404.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
   { path: 'cv', component: CvComponent },
   { path: 'todo', component: TodoComponent },
   { path: 'color', component: ColorComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'word', component: NgstyleComponent },
   { path: 'cv/:id', component: DetailCvComponent },
   { path: '**', component: NF404Component },
